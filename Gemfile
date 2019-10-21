@@ -22,7 +22,7 @@ group :test do
   gem 'simplecov', :require => false
 end
 group :production do
-  gem 'pg', '~> 0.21' # for Heroku deployment
+  gem 'pg', '~> 0.21' # for Heroku deploymen
   gem 'rails_12factor'
 end
 
