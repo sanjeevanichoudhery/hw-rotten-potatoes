@@ -2,6 +2,8 @@ require 'rails_helper'
 
 describe MoviesController, :type => :controller do
   
+  #cases: looking at searching by director
+  #with the 3 situations mentioned in the instructions
   describe 'Search movies by the same director' do
     it 'should call Movie.similar_movies' do
       expect(Movie).to receive(:similar_movies).with('Catch me if you can')
@@ -23,7 +25,8 @@ describe MoviesController, :type => :controller do
     end
   end
   
-  
+  #cases: looking the index page
+  #looking at getting the page and setting the sorting variables 
   describe 'GET index' do
 
     it 'should show index page' do
@@ -42,14 +45,17 @@ describe MoviesController, :type => :controller do
    end
   end
 
+  #cases: looking the new page
+  #looking at getting the page 
   describe 'GET new' do
-
     it 'should show new page' do
       get :new
       expect(response).to render_template('new')
     end
   end
 
+  #cases: looking the show page
+  #looking at getting the page and if the return from the model is correct
   describe 'GET #show' do
     let!(:movie) { FactoryBot.create(:movie, title: 'Pirates of the Caribbean', director: 'Steven Spielberg')  }
 
@@ -65,6 +71,9 @@ describe MoviesController, :type => :controller do
     end
   end
 
+
+  #cases: looking the edit page
+  #looking at getting the page and routed to the correct page
   describe 'GET #edit' do
     let!(:movie) { FactoryBot.create(:movie, title: 'Harry Potter')  }
 
