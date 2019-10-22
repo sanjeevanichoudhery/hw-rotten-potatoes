@@ -33,10 +33,16 @@ class MoviesController < ApplicationController
     @movies = Movie.where(rating: @selected_ratings.keys).order(ordering)
   end
 
+  # Input : parameters? but implicit
+  # Output:  similar movies variable is assigned 
+  # Fulfills the purpose of using the selected movie to get various parameters and 
+  # call to Model and rerouting id director is nil
   def director
+    puts "-----------------------------------------------"
+    puts (params[:title])
     @similar_movies = Movie.similar_movies(params[:title])
     if @similar_movies.nil?
-      redirect_to root_url, alert: "'#{params[:title]}' has no director info"
+      redirect_to root_url, alert: "'#{params[:title]}' has no director info" # syntax from a stackoverflow : https://stackoverflow.com/questions/45065065/rails-5-redirect-notice-style/45065155
     end
     @movie = Movie.find_by(title: params[:title])
   end
