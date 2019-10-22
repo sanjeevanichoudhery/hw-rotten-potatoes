@@ -7,12 +7,13 @@ gem 'rails', '4.2.10'
 
 # for Heroku deployment - as described in Ap. A of ELLS book
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3','~> 1.3.6'
   gem 'byebug'
   gem 'database_cleaner', '1.4.1'
   gem 'capybara', '2.4.4'
   gem 'launchy'
   gem 'rspec-rails', '3.7.2'
+  gem 'factory_bot_rails'
   gem 'ZenTest', '4.12.0'
 end
 
